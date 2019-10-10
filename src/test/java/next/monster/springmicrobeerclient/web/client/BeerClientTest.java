@@ -1,6 +1,7 @@
 package next.monster.springmicrobeerclient.web.client;
 
 import next.monster.springmicrobeerclient.web.model.BeerDto;
+import next.monster.springmicrobeerclient.web.model.CustomerDto;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -25,8 +26,8 @@ class BeerClientTest {
     @Test
     void testSaveNewBeer() {
       //given
-      BeerDto beerDto = BeerDto.builder().beerName("New Beer").build();
-      URI uri = client.saveNewBeer(beerDto);
+      BeerDto beer = BeerDto.builder().beerName("New Beer").build();
+      URI uri = client.saveNewBeer(beer);
       assertNotNull(uri);
       System.out.println(uri.toString());
     }
@@ -41,6 +42,31 @@ class BeerClientTest {
   @Test
   void testDeleteBeer() {
       client.deleteBeer(UUID.randomUUID());
+  }
+
+  @Test
+  void getCustomerById() {
+      CustomerDto customer = client.getCustomerById(UUID.randomUUID());
+      assertNotNull(customer);
+  }
+
+  @Test
+    void testSaveNewCustomer() {
+        CustomerDto customer = CustomerDto.builder().customerName("Anil").build();
+        URI uri = client.saveNewCustomer(customer);
+        assertNotNull(uri);
+        System.out.println(uri.toString());
+  }
+
+  @Test
+    void testUpdateCustomer() {
+        CustomerDto customer = CustomerDto.builder().customerName("Rahul").build();
+        client.updateCustomer(UUID.randomUUID(), customer);
+  }
+
+  @Test
+    void testDeleteCustomer() {
+        client.deleteCustomer(UUID.randomUUID());
   }
 
 }
