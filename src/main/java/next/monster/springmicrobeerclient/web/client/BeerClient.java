@@ -17,8 +17,8 @@ public class BeerClient {
 
     public final String BEER_PATH_V1="/api/v1/beer/";
     public final String CUSTOMER_PATH_V1="/api/v1/customer/";
-    private String apihost;
     private final RestTemplate restTemplate;
+    private String apihost;
 
     public BeerClient(RestTemplateBuilder restTemplateBuilder) {
         this.restTemplate = restTemplateBuilder.build();
