@@ -1,1 +1,1 @@
-# spring-micro-beer-client
+# Beer Client Microservice
